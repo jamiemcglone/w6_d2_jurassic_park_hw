@@ -16,7 +16,7 @@ const Park = function (name, ticketPrice) {
   Park.prototype.mostPopularDino = function () {
     let mostPopular = 0;
     let dino;
-    for (dinosaur of this.dinosaurs) {
+    for (const dinosaur of this.dinosaurs) {
         if (dinosaur.guestsAttractedPerDay > mostPopular) {
           mostPopular = dinosaur.guestsAttractedPerDay;
           dino = dinosaur
@@ -27,7 +27,7 @@ const Park = function (name, ticketPrice) {
 
   Park.prototype.findAllOfSpecies = function (species) {
     let allOfThatSpecies = [];
-    for (dinosaur of this.dinosaurs) {
+    for (const dinosaur of this.dinosaurs) {
       if (dinosaur.species === species) {
         allOfThatSpecies.push(dinosaur);
       }
