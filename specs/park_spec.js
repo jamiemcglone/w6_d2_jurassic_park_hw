@@ -28,13 +28,33 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, []);
   });
 
-  it('should be able to add a dinosaur to its collection');
+  it('should be able to add a dinosaur to its collection', function () {
+    jurassicPark.addDinosaur(bronchosaurus);
+    const actual = jurassicPark.dinosaurs.length;
+    assert.strictEqual(actual, 1);
+  });
 
-  it('should be able to remove a dinosaur from its collection');
+  it('should be able to remove a dinosaur from its collection', function () {
+    jurassicPark.addDinosaur(bronchosaurus);
+    jurassicPark.addDinosaur(tRex);
+    jurassicPark.removeDinosaur(tRex);
+    const actual = jurassicPark.dinosaurs.length;
+    assert.deepStrictEqual(actual, 1)
+  });
 
-  it('should be able to find the dinosaur that attracts the most visitors');
+  it('should be able to find the dinosaur that attracts the most visitors', function () {
+    jurassicPark.addDinosaur(bronchosaurus);
+    jurassicPark.addDinosaur(tRex);
+    const actual = jurassicPark.mostPopularDino();
+    assert.deepStrictEqual(actual, bronchosaurus)
+  });
 
-  it('should be able to find all dinosaurs of a particular species');
+  it('should be able to find all dinosaurs of a particular species', function () {
+    jurassicPark.addDinosaur(bronchosaurus);
+    jurassicPark.addDinosaur(tRex);
+    const actual = jurassicPark.findAllOfSpecies('bronchosaurus');
+    assert.deepStrictEqual(actual, [bronchosaurus])
+  });
 
   it('should be able to calculate the total number of visitors per day');
 
